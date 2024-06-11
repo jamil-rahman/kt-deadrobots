@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "822879279340",
+    "project_id": "deadrobotrestaurant",
+    "storage_bucket": "deadrobotrestaurant.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:822879279340:android:2ef058facd658e0afdadc9",
+        "android_client_info": {
+          "package_name": "com.example.deadrobotrestaurant"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCe0ek38W_ifiek5El3y9mBc7oNyJ_igNE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
