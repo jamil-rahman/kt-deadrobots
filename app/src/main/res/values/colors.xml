@@ -2,4 +2,17 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="ded1"> #F2B705</color>
+    <color name="ded2">#D97904</color>
+    <color name="ded3">#A63F03</color>
+    <color name="ded4">#BF0404</color>
+    <color name="ded5">#400101</color>
+    <color name="ded6">#BF4904</color>
+    <color name="ded7">#A63F03</color>
+    <color name="ded8">#D9A23D</color>
+    <color name="ded9">#A63F03</color>
+    <color name="ded10">#400101</color>
+    <color name="ded11">#F2CDA0</color>
+    <color name="ded12">#730202</color>
+    <color name="ded13">#400101</color>
 </resources>
