@@ -37,6 +37,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="413dp"
         android:layout_height="473dp"
         android:layout_marginBottom="16dp"
@@ -70,9 +71,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:backgroundTint="#400101"
-        android:text="View Cart"
+        android:layout_marginEnd="136dp"
+        android:layout_marginBottom="19dp"
+        android:backgroundTint="@color/ded7"
+        android:text="@string/view_cart"
         android:textColor="@android:color/white"
-        tools:layout_editor_absoluteX="165dp"
-        tools:layout_editor_absoluteY="648dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
