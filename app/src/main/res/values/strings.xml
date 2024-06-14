@@ -14,4 +14,7 @@
     <string name="shop">Shop</string>
     <string name="checkout_btn_1">next</string>
     <string name="cart_txt">Cart</string>
+    <string name="tasty_burger">Tasty Burger</string>
+    <string name="burger1">A juicy, flame-grilled beef patty topped with melted cheddar cheese, fresh lettuce, ripe tomatoes, crunchy pickles, and a tangy special sauce, all nestled between a soft sesame seed bun.</string>
+    <string name="add_to_cart">Add to Cart</string>
 </resources>
