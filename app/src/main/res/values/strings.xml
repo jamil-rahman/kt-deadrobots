@@ -57,4 +57,18 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
-</resources>
+
+<!--    String for Register Activity-->
+    <string name="restaurant_logo">Restaurant Logo</string>
+    <string name="full_name">Full Name</string>
+    <string name="enter_full_name">Enter your full name</string>
+    <string name="email">Email</string>
+    <string name="enter_email">Enter your email</string>
+    <string name="password">Password</string>
+    <string name="enter_password">Enter your password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="enter_confirm_password">Confirm your password</string>
+    <string name="register">Register</string>
+    <string name="already_have_account">Already have an account? Login</string>
+
+    </resources>
