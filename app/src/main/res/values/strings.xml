@@ -58,7 +58,7 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
 
-<!--    String for Register Activity-->
+    <!--    String for Register Activity-->
     <string name="restaurant_logo">Restaurant Logo</string>
     <string name="full_name">Full Name</string>
     <string name="enter_full_name">Enter your full name</string>
@@ -71,4 +71,9 @@
     <string name="register">Register</string>
     <string name="already_have_account">Already have an account? Login</string>
 
-    </resources>
+    <!--    String for Login Activity-->
+    <string name="sign_in">Sign In</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="dont_have_account">Don\'t have an account? Sign up</string>
+
+</resources>
