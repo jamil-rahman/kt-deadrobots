@@ -32,7 +32,7 @@ class ProductAdapter(options: FirebaseRecyclerOptions<Product>)
     override fun onBindViewHolder(holder: ProductAdapter.MyViewHolder, position: Int, model: Product) {
         holder.txtTitle.text = model.title
         holder.txtShortDesp.text = model.short_description
-        holder.txtCalories.text = "Cal:" + model.calories.toString()
+        holder.txtCalories.text = model.calories.toString() + "Calories"
         val theImage : String = model.image
 
         if(theImage.indexOf("gs://") > -1){
@@ -47,13 +47,18 @@ class ProductAdapter(options: FirebaseRecyclerOptions<Product>)
                 .into(holder.imgPhoto)
         }
 
+
         holder.btnMore.setOnClickListener {
             val context = holder.itemView.context
+//            Log.d("calo", "Cal ${model.calories}, ratings: ${model.rating}")
             val intent = Intent(context, ProductDetailActivity::class.java).apply {
                 putExtra("product_id", model.product_id)
+                putExtra("calories", model.calories)
+                putExtra("rating", model.rating)
                 putExtra("title", model.title)
                 putExtra("longDescription", model.long_description)
                 putExtra("image", model.image)
+                putExtra("price",model.price)
             }
             context.startActivity(intent)
         }

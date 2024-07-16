@@ -26,7 +26,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this@SplashActivity, RegisterActivity::class.java)
+            val intent = Intent(this@SplashActivity, LoginActivity::class.java)
             startActivity(intent)
             finish()
         }, 2000) // auto redirect to main activity

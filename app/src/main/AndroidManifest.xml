@@ -13,14 +13,27 @@
         android:theme="@style/Theme.DeadRobotRestaurant"
         tools:targetApi="31">
         <activity
+            android:name=".CartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.DeadRobotRestaurant">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".LoginActivity"
             android:exported="true"
-            android:theme="@style/Theme.DeadRobotRestaurant" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:theme="@style/Theme.DeadRobotRestaurant">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".RegisterActivity"
@@ -37,21 +50,13 @@
         <activity
             android:name=".ProductDetailActivity"
             android:exported="false"
-            android:theme="@style/Theme.DeadRobotRestaurant" />
-        <activity
-            android:name=".SplashActivity"
-            android:exported="true"
-            android:theme="@style/Theme.DeadRobotRestaurant">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.DeadRobotRestaurant"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".Payment"
             android:exported="false"
-            android:theme="@style/Theme.DeadRobotRestaurant" />
+            android:theme="@style/Theme.DeadRobotRestaurant"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

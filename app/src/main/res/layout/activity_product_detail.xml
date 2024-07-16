@@ -1,61 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/ded8">
+    android:background="@color/ded8"
+    android:fillViewport="true">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="411dp"
-        android:layout_height="410dp"
-        android:layout_marginBottom="316dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="16:9"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/burgerdeets" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/prodTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/tiktoksansbold"
-        android:text="@string/tasty_burger"
-        android:textColor="@color/ded7"
-        android:textSize="26dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.118"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView3" />
+        <FrameLayout
+            android:id="@+id/imageContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
 
-    <TextView
-        android:id="@+id/prodDeets"
-        android:layout_width="349dp"
-        android:layout_height="119dp"
-        android:text="@string/burger1"
-        android:textSize="17dp"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="415dp"
-        app:layout_constraintTop_toBottomOf="@id/prodTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+            <ImageView
+                android:id="@+id/imgBurger"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/img_description"
+                tools:ignore="ImageContrastCheck"
+                tools:srcCompat="@tools:sample/avatars" />
+        </FrameLayout>
 
-    <Button
-        android:id="@+id/addCart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/ded7"
-        android:text="@string/add_to_cart"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.889"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.863"
-        app:strokeColor="@color/ded7"
-        app:strokeWidth="1dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageContainer"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/prodTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/tiktoksansbold"
+                    android:text="@string/tasty_burger"
+                    android:textColor="#AD1457"
+                    android:textSize="36sp" />
+
+                <TextView
+                    android:id="@+id/txtRate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/txtRating"
+                    android:textColor="#030201" />
+
+                <TextView
+                    android:id="@+id/prodDeets"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/burger1"
+                    android:textColor="#030201"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/txtCals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/text_calories"
+                    android:textColor="#030201" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <EditText
+            android:id="@+id/edit_Quantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cardViewDetails"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/white"
+            android:hint="How many do you want?"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:padding="15dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_Quantity"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <Button
+                android:id="@+id/btnBack"
+                android:layout_width="0dp"
+                android:layout_height="58dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/ded7"
+                android:text="@string/goBack"
+                android:textSize="16sp"
+                app:strokeColor="@color/ded7"
+                app:strokeWidth="1dp" />
+
+            <Button
+                android:id="@+id/addCart"
+                android:layout_width="0dp"
+                android:layout_height="58dp"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/ded4"
+                android:text="@string/addTxt"
+                android:textSize="16sp"
+                app:strokeColor="@color/ded7"
+                app:strokeWidth="1dp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</ScrollView>
