@@ -96,6 +96,7 @@
     <string name="txt_search">Search</string>
     <string name="goBack">Go Back</string>
     <string name="quantity">Quantity</string>
+    <string name="price">Price</string>
     <string name="cartTxt">GO TO CART</string>
     <string name="addTxt">ADD TO CART</string>
 

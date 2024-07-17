@@ -17,6 +17,8 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.bumptech.glide.Glide
 import com.example.deadrobotrestaurant.databinding.ActivityProductDetailBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 
 class ProductDetailActivity : AppCompatActivity() {
@@ -31,6 +33,8 @@ class ProductDetailActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+//        val user = FirebaseAuth.getInstance().currentUser
+//        Log.d("auth", "${user}")
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
@@ -80,38 +84,55 @@ class ProductDetailActivity : AppCompatActivity() {
         }
 
         btn_addToCart.setOnClickListener {
-            val title = productTitle.text.toString()
-            val quantity = quantityEditText.text.toString().toIntOrNull() ?: 0
+            val quantityStr = quantityEditText.text.toString()
+            val quantity = if (quantityStr.isNotEmpty()) quantityStr.toInt() else 0
 
-
-            if (quantity == null) {
-                Toast.makeText(this, "Please enter a valid number", Toast.LENGTH_SHORT).show()
+            if (quantity <= 0 ) {
+                Toast.makeText(this, "You have to order at least 1", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            if (quantity > 5) {
-                Toast.makeText(this, "Quantity should be 5 or lower", Toast.LENGTH_SHORT).show()
+            if (quantity > 5 ) {
+                Toast.makeText(this, "You can order 5 at max", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            if (quantity <= 0) {
-                Toast.makeText(this, "Quantity should be greater than 0", Toast.LENGTH_SHORT).show()
+            val user = FirebaseAuth.getInstance().currentUser
+            if (user == null) {
+                Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
+            val userId = user.uid
+            val database = FirebaseDatabase.getInstance()
+            val productRef = database.getReference("products").child(id.toString())
+            val cartRef = database.getReference("cart").child(userId).child(id.toString())
 
-            val price = prodPrice
+            productRef.child("quantity").get().addOnSuccessListener { snapshot ->
+                val currentQuantity = snapshot.getValue(Int::class.java) ?: 0
 
-            val intent = Intent(this, CartActivity::class.java)
-            intent.putExtra("PRODUCT_TITLE", title)
-            intent.putExtra("PRODUCT_QUANTITY", quantity)
-            intent.putExtra("PRODUCT_PRICE", price)
+                if (currentQuantity < quantity) {
+                    Toast.makeText(this, "Not enough stock available", Toast.LENGTH_SHORT).show()
+                } else {
+                    val newQuantity = currentQuantity - quantity
+                    productRef.child("quantity").setValue(newQuantity)
 
-            Log.d("cartDeet", "title: ${title}, Quantity: ${quantity}, Price: ${price}" );
-
-            startActivity(intent)
+                    val cartItem = mapOf(
+                        "title" to title,
+                        "image" to image,
+                        "quantity" to quantity
+                    )
+                    cartRef.setValue(cartItem).addOnSuccessListener {
+                        Toast.makeText(this, "Added to cart", Toast.LENGTH_SHORT).show()
+                    }.addOnFailureListener {
+                        Toast.makeText(this, "Failed to add to cart", Toast.LENGTH_SHORT).show()
+                    }
+                    quantityEditText.setText("")
+                }
+            }.addOnFailureListener {
+                Toast.makeText(this, "Failed to get product data", Toast.LENGTH_SHORT).show()
+            }
         }
-
 
         }
     }

@@ -51,7 +51,7 @@
                     android:fontFamily="@font/tiktoksansbold"
                     android:text="@string/tasty_burger"
                     android:textColor="#AD1457"
-                    android:textSize="36sp" />
+                    android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/txtRate"
