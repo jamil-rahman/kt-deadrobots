@@ -7,152 +7,165 @@
     android:background="@color/ded8"
     tools:context=".OrderActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <TextView
+        android:id="@+id/payment"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_gravity="center"
+        android:background="@drawable/backgroundallblack"
+        android:fontFamily="@font/tiktoksansbold"
+        android:gravity="center"
+        android:text="Payment Details"
+        android:textColor="@color/white"
+        android:textSize="35sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp">
 
-        <TextView
-            android:id="@+id/tvCartTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/tiktoksansbold"
-            android:text="@string/my_cart"
-            android:textColor="@color/ded12"
-            android:textSize="35sp"
-            android:layout_gravity="center" />
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:fontFamily="@font/tiktoksansbold"
             android:text="Full Name"
             android:textSize="24sp"
-            android:fontFamily="@font/tiktoksansbold"
-            android:layout_marginBottom="3dp"
             android:textStyle="bold"/>
 
         <EditText
             android:id="@+id/etFullName"
-            android:padding="6dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/edittext"
             android:hint="Enter your full name"
             android:inputType="textPersonName"
-            android:layout_marginBottom="16dp"/>
+            android:padding="12dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Phone Number"
-            android:fontFamily="@font/tiktoksansbold"
-            android:textSize="24sp"
             android:layout_marginBottom="3dp"
+            android:fontFamily="@font/tiktoksansbold"
+            android:text="Phone Number"
+            android:textSize="24sp"
             android:textStyle="bold"/>
 
         <EditText
             android:id="@+id/etPhoneNumber"
-            android:background="@color/white"
-            android:padding="6dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/edittext"
             android:hint="Enter your phone number"
             android:inputType="phone"
-            android:layout_marginBottom="16dp"/>
+            android:padding="12dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:fontFamily="@font/tiktoksansbold"
             android:layout_marginBottom="3dp"
+            android:fontFamily="@font/tiktoksansbold"
             android:text="Address"
+            android:textSize="24sp"
             android:textStyle="bold"/>
 
         <EditText
             android:id="@+id/etStreetAddress"
-            android:background="@color/white"
-            android:padding="6dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/edittext"
             android:hint="Street address"
             android:inputType="textPostalAddress"
-            android:layout_marginBottom="8dp"/>
+            android:padding="12dp"/>
 
         <EditText
             android:id="@+id/etAptSuite"
-            android:background="@color/white"
-            android:padding="6dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/edittext"
             android:hint="Apt, Suite, Unit, Building (optional)"
             android:inputType="text"
-            android:layout_marginBottom="16dp"/>
+            android:padding="12dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:fontFamily="@font/tiktoksansbold"
             android:layout_marginBottom="3dp"
+            android:fontFamily="@font/tiktoksansbold"
             android:text="City"
+            android:textSize="24sp"
             android:textStyle="bold"/>
 
         <EditText
             android:id="@+id/etCity"
             android:layout_width="match_parent"
-            android:background="@color/white"
-            android:padding="6dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/edittext"
             android:hint="Enter your city"
             android:inputType="text"
-            android:layout_marginBottom="16dp"/>
+            android:padding="12dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:fontFamily="@font/tiktoksansbold"
             android:layout_marginBottom="3dp"
+            android:fontFamily="@font/tiktoksansbold"
             android:text="Province/Territory"
+            android:textSize="24sp"
             android:textStyle="bold"/>
 
         <Spinner
             android:id="@+id/spinnerProvince"
-            android:background="@color/white"
-            android:padding="6dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/edittext"
+            android:padding="12dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/tiktoksansbold"
-            android:textSize="24sp"
             android:layout_marginBottom="3dp"
+            android:fontFamily="@font/tiktoksansbold"
             android:text="Postal Code"
+            android:textSize="24sp"
             android:textStyle="bold"/>
 
         <EditText
             android:id="@+id/etPostalCode"
-            android:background="@color/white"
-            android:padding="6dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/edittext"
             android:hint="Enter your postal code"
             android:inputType="textPostalAddress"
-            android:layout_marginBottom="16dp"/>
+            android:padding="12dp"/>
 
         <Button
             android:id="@+id/btnPlaceOrder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Confirm Order"
+            android:layout_marginTop="16dp"
             android:backgroundTint="@color/ded7"
-            android:layout_marginTop="16dp"/>
+            android:text="Confirm Order"/>
 
     </LinearLayout>
+    </LinearLayout>
+    </RelativeLayout>
 </ScrollView>

@@ -23,6 +23,7 @@ class CartActivity : AppCompatActivity() {
         binding = ActivityCartBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_cart)
 
+
         val user = FirebaseAuth.getInstance().currentUser
         if (user == null) {
             finish()
@@ -35,7 +36,7 @@ class CartActivity : AppCompatActivity() {
             .setQuery(query, CartItem::class.java)
             .build()
 
-        adapter = CartAdapter(options)
+        adapter = CartAdapter(options,userId)
         val rView : RecyclerView = findViewById(R.id.cartRecyclerView)
         rView.layoutManager = LinearLayoutManager(this)
         rView.adapter = adapter
