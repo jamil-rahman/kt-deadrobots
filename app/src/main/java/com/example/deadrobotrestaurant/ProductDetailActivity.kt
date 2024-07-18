@@ -97,6 +97,7 @@ class ProductDetailActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            val productPrice = prodPrice * quantity
             val user = FirebaseAuth.getInstance().currentUser
             if (user == null) {
                 Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show()
@@ -110,7 +111,6 @@ class ProductDetailActivity : AppCompatActivity() {
 
             productRef.child("quantity").get().addOnSuccessListener { snapshot ->
                 val currentQuantity = snapshot.getValue(Int::class.java) ?: 0
-
                 if (currentQuantity < quantity) {
                     Toast.makeText(this, "Not enough stock available", Toast.LENGTH_SHORT).show()
                 } else {
@@ -118,9 +118,11 @@ class ProductDetailActivity : AppCompatActivity() {
                     productRef.child("quantity").setValue(newQuantity)
 
                     val cartItem = mapOf(
+                        "id" to id.toString(),
                         "title" to title,
                         "image" to image,
-                        "quantity" to quantity
+                        "quantity" to quantity,
+                        "price" to productPrice
                     )
                     cartRef.setValue(cartItem).addOnSuccessListener {
                         Toast.makeText(this, "Added to cart", Toast.LENGTH_SHORT).show()
