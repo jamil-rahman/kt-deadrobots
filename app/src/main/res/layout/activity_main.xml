@@ -19,22 +19,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/searchEditText"
-        android:layout_width="338dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="164dp"
-        android:background="@drawable/edittext"
-        android:ems="10"
-        android:hint="Search"
-        android:inputType="text"
-        android:padding="10dp"
-        android:textColorHint="@color/ded7"
-        android:textSize="14sp"
+    <ImageView
+        android:id="@+id/bannerImageView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/banner_image"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/logoImageView" />
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -60,7 +54,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/searchEditText"
+            app:layout_constraintTop_toBottomOf="@id/bannerImageView"
             app:layout_constraintVertical_bias="0.0" />
 
     </FrameLayout>

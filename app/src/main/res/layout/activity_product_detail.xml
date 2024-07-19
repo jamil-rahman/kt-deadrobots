@@ -20,7 +20,7 @@
             <ImageView
                 android:id="@+id/imgBurger"
                 android:layout_width="300dp"
-                android:layout_height="300dp"
+                android:layout_height="285dp"
                 android:layout_gravity="center"
                 android:scaleType="centerCrop"
                 android:adjustViewBounds="true"

@@ -46,18 +46,18 @@ class ProductDetailActivity : AppCompatActivity() {
         quantityEditText = findViewById(R.id.edit_Quantity)
         btn_addToCart = findViewById(R.id.addCart)
 
-        // Get data from Intent
-        val id = intent.getIntExtra("product_id", -1) // Default to -1 if not found
+        // Get data from the Intent
+        val id = intent.getIntExtra("product_id", -1)
         val title = intent.getStringExtra("title") ?: "No title"
         val longDescription = intent.getStringExtra("longDescription") ?: "No description"
         val image = intent.getStringExtra("image") ?: ""
-        val calories = intent.getIntExtra("calories", -69) // Default to -1f if not found
-        val rating = intent.getFloatExtra("rating", -69f) // Default to -1 if not found
+        val calories = intent.getIntExtra("calories", -69)
+        val rating = intent.getFloatExtra("rating", -69f)
         val prodPrice = intent.getIntExtra("price",-69)
 
 
         Log.d("productDeet", "ProductDetail:Product ID: ${id}, ${title}, Calories: ${calories}, Ratings: ${rating}, Price: ${prodPrice}", );
-        // Set data to views
+        // Set the data to views
         binding.prodTitle.text = title
         binding.prodDeets.text = longDescription
         binding.txtRate.text = rating.toString() + "⭐"
@@ -78,7 +78,7 @@ class ProductDetailActivity : AppCompatActivity() {
                     .into(binding.imgBurger)
             }
         }
-        //navigate back
+        //navigate back on back button
         btn_back.setOnClickListener{
             onBackPressedDispatcher.onBackPressed()
         }

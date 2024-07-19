@@ -14,6 +14,7 @@ import com.google.firebase.database.FirebaseDatabase
 class CartActivity : AppCompatActivity() {
 
     private lateinit var btnToOrder: Button
+    private lateinit var btnToShop: Button
     private lateinit var binding: ActivityCartBinding
     private var adapter: CartAdapter? = null
 
@@ -42,11 +43,16 @@ class CartActivity : AppCompatActivity() {
         rView.adapter = adapter
 
         btnToOrder = findViewById(R.id.btnToOrder)
+        btnToShop = findViewById(R.id.btnToShop)
 
 
         btnToOrder.setOnClickListener {
             val intent = Intent(this, OrderActivity::class.java)
-            // Start OrderActivity
+            startActivity(intent)
+        }
+
+        btnToShop.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 

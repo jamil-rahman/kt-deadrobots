@@ -43,7 +43,7 @@ class LoginActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        // Get references to views
+        // Get the references to views
         imageLogo = findViewById(R.id.image_logo)
         editEmail = findViewById(R.id.edit_Email)
         editPassword = findViewById(R.id.edit_Password)
@@ -59,19 +59,16 @@ class LoginActivity : AppCompatActivity() {
         val email = editEmail.text.toString().trim()
         val password = editPassword.text.toString().trim()
 
-        // text validation
         if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
             return
         }
 
-        // sign in with email and password
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // sign in success,
                     Toast.makeText(this, "Sign in successful", Toast.LENGTH_SHORT).show()
-                    // navigate to main activity
+                    // navigate to the main activity
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                     finish()

@@ -47,7 +47,7 @@ class CartAdapter(options: FirebaseRecyclerOptions<CartItem>, private val userId
                 .into(holder.imgPhoto)
         }
 
-        // FUNC Remove
+        // Function Remove Button
         holder.btnRemove.setOnClickListener {
             // Get the item key
             val itemKey = getRef(position).key

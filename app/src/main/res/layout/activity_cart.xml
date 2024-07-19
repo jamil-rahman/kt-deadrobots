@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
     <TextView
-        android:id="@+id/tvCartTitle"
+        android:id="@+id/txtCartTitle"
         android:layout_width="match_parent"
         android:layout_height="180dp"
         android:gravity="center"
@@ -46,30 +46,17 @@
             app:cardCornerRadius="8dp"
             app:cardElevation="4dp">
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="vertical"-->
-<!--                android:padding="16dp">-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/tvTotalItems"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Total Items: 0"-->
-<!--                    android:textSize="16sp" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/tvTotalValue"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="8dp"-->
-<!--                    android:text="Total Value: $0.00"-->
-<!--                    android:textSize="18sp"-->
-<!--                    android:textStyle="bold" />-->
-<!--            </LinearLayout>-->
-
         </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btnToShop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cardViewTotal"
+            android:layout_marginBottom="16dp"
+            android:text="Continue Shoping"
+            android:backgroundTint="@color/ded7"
+            android:layout_alignParentLeft="true" />
 
         <Button
             android:id="@+id/btnToOrder"
@@ -79,7 +66,7 @@
             android:layout_marginBottom="16dp"
             android:text="Continue to Payment"
             android:backgroundTint="@color/ded7"
-            android:layout_centerHorizontal="true" />
+            android:layout_alignParentRight="true" />
 
     </RelativeLayout>
     </LinearLayout>

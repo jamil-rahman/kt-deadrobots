@@ -1,4 +1,5 @@
 package com.example.deadrobotrestaurant
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -23,26 +24,31 @@ class OrderActivity : AppCompatActivity() {
     private lateinit var province: Spinner
     private lateinit var postalEdit: EditText
     private lateinit var btnPlaceOrder: Button
+    private lateinit var cardNumber: EditText
+    private lateinit var expirationDate: EditText
+    private lateinit var cvv: EditText
+    private lateinit var cardName: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_order)
 
-        // Initialize views
-        fullName = findViewById(R.id.etFullName)
-        phoneNumber = findViewById(R.id.etPhoneNumber)
-        streetAddress = findViewById(R.id.etStreetAddress)
-        aptSuite = findViewById(R.id.etAptSuite)
-        city = findViewById(R.id.etCity)
+        fullName = findViewById(R.id.editFullName)
+        phoneNumber = findViewById(R.id.editPhoneNumber)
+        streetAddress = findViewById(R.id.editStreetAddress)
+        aptSuite = findViewById(R.id.editAptSuite)
+        city = findViewById(R.id.editCity)
         province = findViewById(R.id.spinnerProvince)
-        postalEdit = findViewById(R.id.etPostalCode)
+        postalEdit = findViewById(R.id.editPostalCode)
         btnPlaceOrder = findViewById(R.id.btnPlaceOrder)
+        cardNumber = findViewById(R.id.editCardNumber)
+        expirationDate = findViewById(R.id.editExpirationDate)
+        cvv = findViewById(R.id.editCVV)
+        cardName = findViewById(R.id.editCardName)
 
-        // Set up province spinner
         setupProvinceSpinner()
 
-        // Set up place order button click listener
         btnPlaceOrder.setOnClickListener {
             if (validateForm()) {
                 placeOrder()
@@ -100,6 +106,43 @@ class OrderActivity : AppCompatActivity() {
             isValid = false
         }
 
+        // Validate Cardholder Name
+        if (cardName.text.toString().trim().isEmpty()) {
+            cardName.error = "Cardholder Name is required"
+            isValid = false
+        }
+
+        // Validate Card Number
+        val cardNum = cardNumber.text.toString().trim()
+        if (cardNum.isEmpty()) {
+            cardNumber.error = "Card Number is required"
+            isValid = false
+        } else if (!isValidCardNumber(cardNum)) {
+            cardNumber.error = "Invalid Card Number format"
+            isValid = false
+        }
+
+        // Validate Expiration Date
+        val expDate = expirationDate.text.toString().trim()
+        if (expDate.isEmpty()) {
+            expirationDate.error = "Expiration Date is required"
+            isValid = false
+        } else if (!isValidExpirationDate(expDate)) {
+            expirationDate.error = "Invalid Expiration Date format"
+            isValid = false
+        }
+
+        // Validate CVV
+        val cVV = cvv.text.toString().trim()
+        if (cVV.isEmpty()) {
+            cvv.error = "CVV is required"
+            isValid = false
+        } else if (!isValidCVV(cVV)) {
+            cvv.error = "Invalid CVV format"
+            isValid = false
+        }
+
+
         return isValid
     }
 
@@ -109,6 +152,26 @@ class OrderActivity : AppCompatActivity() {
         return regex.matches(postalCode)
     }
 
+    // function to validate Expiration Date (MM/YY)
+    private fun isValidExpirationDate(expirationDate: String): Boolean {
+        // Expiration Date format: MM/YY
+        return expirationDate.matches(Regex("^(0[1-9]|1[0-2])/[0-9]{2}$"))
+    }
+
+    // function to validate CVV
+    private fun isValidCVV(cvv: String): Boolean {
+        // CVV format: 3 or 4 digits
+        return cvv.matches(Regex("^[0-9]{3,4}$"))
+    }
+    private fun isValidCardNumber(cardNumber: String): Boolean {
+        // Remove any spaces or hyphens
+        val cleanCardNumber = cardNumber.replace(Regex("[\\s-]"), "")
+        // Check if the length is between 13 and 19 digits
+        if (cleanCardNumber.length < 13 || cleanCardNumber.length > 19) {
+            return false
+        }
+        return true
+    }
     private fun placeOrder() {
         val fullName = fullName.text.toString().trim()
         val phoneNumber = phoneNumber.text.toString().trim()
@@ -162,6 +225,10 @@ class OrderActivity : AppCompatActivity() {
                             cartRef.removeValue().addOnCompleteListener { clearTask ->
                                 if (clearTask.isSuccessful) {
                                     Toast.makeText(this, "Order placed successfully", Toast.LENGTH_SHORT).show()
+                                    // Navigate to PaymentActivity
+                                    val intent = Intent(this, SuccessActivity::class.java)
+                                    startActivity(intent)
+                                    finish()
                                 } else {
                                     Toast.makeText(this, "Failed to clear cart", Toast.LENGTH_SHORT).show()
                                 }

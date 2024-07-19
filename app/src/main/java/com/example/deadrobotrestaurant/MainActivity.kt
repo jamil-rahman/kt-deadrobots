@@ -39,7 +39,6 @@ class MainActivity : AppCompatActivity() {
 
         btn_cart.setOnClickListener {
             val intent = Intent(this, CartActivity::class.java)
-            // Start CartActivity
             startActivity(intent)
         }
     }

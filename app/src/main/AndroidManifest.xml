@@ -72,6 +72,11 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
+        <activity
+            android:name=".SuccessActivity"
+            android:exported="true"
+            android:theme="@style/Theme.DeadRobotRestaurant"
+            android:windowSoftInputMode="adjustPan" />
     </application>
 
 </manifest>
