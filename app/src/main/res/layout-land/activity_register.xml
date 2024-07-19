@@ -1,0 +1,128 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/ded8"
+    tools:context=".RegisterActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:contentDescription="@string/restaurant_logo" />
+
+        <TextView
+            android:id="@+id/text_fullName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/full_name"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_below="@id/logo"
+            android:layout_marginTop="32dp"/>
+
+        <EditText
+            android:id="@+id/edit_fullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="@string/enter_full_name"
+            android:background="@color/white"
+            android:padding="12dp"
+            android:layout_below="@id/text_fullName"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/text_Email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_below="@id/edit_fullName"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/edit_Email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="@string/enter_email"
+            android:background="@color/white"
+            android:padding="12dp"
+            android:layout_below="@id/text_Email"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/text_Password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/password"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_below="@id/edit_Email"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/edit_Password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="@string/enter_password"
+            android:background="@color/white"
+            android:padding="12dp"
+            android:layout_below="@id/text_Password"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/text_ConfirmPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/confirm_password"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_below="@id/edit_Password"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/edit_ConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="@string/enter_confirm_password"
+            android:background="@color/white"
+            android:padding="12dp"
+            android:layout_below="@id/text_ConfirmPassword"
+            android:layout_marginTop="8dp"/>
+
+        <Button
+            android:id="@+id/register_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/ded7"
+            android:text="@string/register"
+            android:layout_below="@id/edit_ConfirmPassword"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"/>
+
+        <TextView
+            android:id="@+id/toLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/already_have_account"
+            android:textSize="14sp"
+            android:textColor="@color/ded5"
+            android:layout_below="@id/register_btn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"/>
+
+    </RelativeLayout>
+</ScrollView>

@@ -32,7 +32,7 @@ class ProductAdapter(options: FirebaseRecyclerOptions<Product>)
     override fun onBindViewHolder(holder: ProductAdapter.MyViewHolder, position: Int, model: Product) {
         holder.txtTitle.text = model.title
         holder.txtShortDesp.text = model.short_description
-        holder.txtCalories.text = model.calories.toString() + "Calories"
+        holder.txtCalories.text = model.calories.toString() + " Calories"
         val theImage : String = model.image
 
         if(theImage.indexOf("gs://") > -1){
